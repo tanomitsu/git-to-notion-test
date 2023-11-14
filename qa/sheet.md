@@ -17,10 +17,3 @@ function hello() {
   console.log('Hello, World!')
 }
 ```
-
-<aside>
-💡 あああああ
-
-- [ ]
-
-</aside>
