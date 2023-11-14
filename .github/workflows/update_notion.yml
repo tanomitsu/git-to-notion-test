@@ -5,28 +5,24 @@ on:
     branches: [ main ]
     paths:
       - 'qa/sheet.md'
-
 jobs:
   update-notion:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          python-version: '3.9'
+          node-version: '20'
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install notion-client
+        run: npm install
 
-      - name: Update Notion Page
+      - name: Run update script
+        run: ts-node qa/update_notion.ts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
-        run: |
-          python .github/update_notion_page.py

@@ -1,0 +1,21 @@
+{
+  "name": "git-to-notion-test",
+  "version": "1.0.0",
+  "description": "### モチベーション QAリストをレポジトリ内にMarkdownとして保存し、mainブランチが更新されるたびにMarkdownからNotionの特定のページへ反映したい。",
+  "main": "index.js",
+  "scripts": {
+    "test": "ts-node qa/update_notion.ts",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.13",
+    "@tryfabric/martian": "^1.2.4",
+    "@types/node": "^20.9.0",
+    "dotenv": "^16.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
