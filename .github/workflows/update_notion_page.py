@@ -7,7 +7,6 @@ def clear_page_blocks(notion, page_id):
         notion.blocks.delete(block["id"])
 
 
-
 def update_notion_page(notion, page_id, content):
     # ページの既存のブロックをクリア
     clear_page_blocks(notion, page_id)
