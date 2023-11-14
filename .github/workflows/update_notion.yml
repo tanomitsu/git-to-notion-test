@@ -24,13 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install notion-client
 
-      - name: debug
-        run: |
-          ls
-
       - name: Update Notion Page
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
         run: |
-          python update_notion_page.py
+          python .github/update_notion_page.py

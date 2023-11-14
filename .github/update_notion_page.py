@@ -1,3 +1,12 @@
+import os
+from notion_client import Client
+
+
+def read_markdown_file(filepath):
+    with open(filepath, "r") as file:
+        return file.read()
+
+
 def clear_page_blocks(notion, page_id):
     # ページ内の既存のブロックを取得
     existing_blocks = notion.blocks.children.list(page_id)["results"]
@@ -26,3 +35,22 @@ def update_notion_page(notion, page_id, content):
             }
         ],
     )
+
+
+def main():
+    notion_token = os.environ.get("NOTION_TOKEN")
+    notion_page_id = os.environ.get("NOTION_PAGE_ID")
+    markdown_file_path = "../qa/sheet.md"  # Markdownファイルのパス
+
+    # Notionクライアントの初期化
+    notion = Client(auth=notion_token)
+
+    # Markdownファイルの読み込み
+    markdown_content = read_markdown_file(markdown_file_path)
+
+    # Notionページの更新
+    update_notion_page(notion, notion_page_id, markdown_content)
+
+
+if __name__ == "__main__":
+    main()
