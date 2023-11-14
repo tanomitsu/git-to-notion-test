@@ -40,7 +40,7 @@ def update_notion_page(notion, page_id, content):
 def main():
     notion_token = os.environ.get("NOTION_TOKEN")
     notion_page_id = os.environ.get("NOTION_PAGE_ID")
-    markdown_file_path = "../qa/sheet.md"  # Markdownファイルのパス
+    markdown_file_path = "qa/sheet.md"  # Markdownファイルのパス
 
     # Notionクライアントの初期化
     notion = Client(auth=notion_token)
