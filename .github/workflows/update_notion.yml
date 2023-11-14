@@ -2,7 +2,7 @@ name: Update Notion Page
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
       - 'qa/sheet.md'
 jobs:
@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Run update script
-        run: ts-node qa/update_notion.ts
+        run: npm run regen-notion
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}

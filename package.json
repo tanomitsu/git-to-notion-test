@@ -4,7 +4,7 @@
   "description": "### モチベーション QAリストをレポジトリ内にMarkdownとして保存し、mainブランチが更新されるたびにMarkdownからNotionの特定のページへ反映したい。",
   "main": "index.js",
   "scripts": {
-    "test": "ts-node qa/update_notion.ts",
+    "regen-notion": "ts-node qa/update_notion.ts",
     "format": "prettier --write ."
   },
   "keywords": [],
